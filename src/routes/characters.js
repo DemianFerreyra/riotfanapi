@@ -4,9 +4,9 @@ const { Character } = require("../db");
 
 router.get("/", async (req, res) => {
   const query = req.query;
-
+  console.log(query)
   try {
-    if(Object.keys(query)){
+    if(Object.keys(query).length){
       const charactersFind = await Character.findAll({
         where: {
           [Object.keys(query).toString().toLowerCase()]: Object.values(query).toString().toLowerCase()
