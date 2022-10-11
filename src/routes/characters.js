@@ -40,7 +40,7 @@ router.post("/", async (req, res) => {
       images,
       description,
       abilities,
-      country
+      country: country.toLowerCase(),
     })
     res.status(200).send("Personaje creado exitosamente");
   } catch (error) {
