@@ -34,7 +34,9 @@ let capsEntries = entries.map((entry) => [
 ]);
 sequelize.models = Object.fromEntries(capsEntries);
 
-const { Character } = sequelize.models;
+const { Game, Result } = sequelize.models;
+
+Result.belongsTo(Game, {through : "results_game"});
 
 module.exports = {
   ...sequelize.models,
